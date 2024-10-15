@@ -1,0 +1,74 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}CyberHub 360{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <button class="menu-button" onclick="toggleMenu()" aria-label="Меню">
+                <span>☰</span>
+            </button>
+            <h1 class="site-title">CyberHub 360</h1>
+            {% if user.is_authenticated %}
+    <div class="user-info">
+        <a href="{% url 'users:profile' %}">
+            {% if user.image %}
+                <img src="{{ user.image.url }}" alt="User Avatar" width="30" height="30">
+            {% else %}
+                    <img src="{% static 'images/avatar.png' %}" alt="User Avatar" width="30" height="30">
+            {% endif %}
+        </a>
+    </div>
+{% else %}
+    <button class="login-button" onclick="window.location.href='{% url 'users:login' %}';" aria-label="Вход">
+        <i class="bi bi-person-circle" style="font-size: 20px;"></i>
+    </button>
+{% endif %}
+
+        </nav>
+    </header>
+    <!-- Панель меню -->
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="toggleMenu()">×</a>
+        <a href="#" onclick="location.href='{% url 'index' %}';">Home</a>
+        <a href="{% url 'news:index' %}">News</a>
+        <a href="#">Security</a>
+        <a href="#">Privacy</a>
+    </div>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <div class="pagination">
+        {% block pagination %}{% endblock %}
+    </div>
+
+    <footer>
+        <img src="logo.png" alt="Логотип CyberHub 360">
+        <p>© 2024 CyberHub 360</p>
+    </footer>
+
+    <script src="{% static 'script.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+
+</body>
+</html>

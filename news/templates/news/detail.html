@@ -1,0 +1,77 @@
+{% extends 'users/base.html' %}
+
+{% block content %}
+    <div class="row mb-5">
+        <div class="col-1 text-end" style="display: none;">
+        <!-- Left arrow-square -->
+        <a style="color: white" href="{% url 'index' %}"><i class="bi bi-arrow-left-square-fill"></i></a>
+    </div>
+    <div class="col-11 col-sm-11 col-md-11 col-lg-8 col-xl-8 col-xxl-8">
+        <div class="card mb-3 text-dark" style="max-width: 1200px;width:fit-content; box-shadow:none;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{ news.image.url }}" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body" >
+                        <h5 class="card-title" style="width: fit-content">{{ news.title }}</h5>
+                        <p class="card-text" style="display: block;">{{ news.content }}</p>
+                       <!--Optionally display time since last update-->
+                         <p class="card-text"><small class="text-danger">{{ news.pub_date | timesince }} ago</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div class="d-inline d-lg-none d-xl-none d-xxl-none">
+               <!-- Write Comment -->
+        {% if user.is_authenticated %}
+        <!-- Comment -->
+        <form action="{% url 'news:news_detail' news.id %}" method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" class="btn btn-primary mt-2">Submit</button>
+        </form>
+        <!-- /Comment -->
+    {% else %}
+        <p>You must be <a href="{% url 'users:login' %}">logged in</a> to post a comment.</p>
+    {% endif %}
+    <!-- /Write Comment -->
+            </div>
+
+        </div>
+        <div class="d-none d-sm-none d-md-none d-lg-inline d-xl-inline d-xxl-inline  col-lg-3 col-xl-3 col-xxl-3 ">
+            <div class="button-container">
+                <!-- Comment -->
+                <form action="{% url 'news:news_detail' news.id %}" method="POST">
+                    {% csrf_token %}
+                    {{ form }}
+                    <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                </form>
+                <!-- Comments -->
+                <p>
+                    <button class="btn btn-light position-relative" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        <i class="bi bi-chat-dots-fill text-dark"></i> Comments
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            {{ comments.count }}
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+                    </button>
+                </p>
+            </div>
+            <div class="collapse" id="collapseExample">
+                {% if comments %}
+                    {% for comment in comments %}
+                        <div class="card card-body text-dark mb-2" style="min-height: 0px; box-shadow: none;">
+                            <span style="color: black; font-weight: bold;">{{ comment.user.username }}</span>  <!-- Отобразите имя пользователя автора комментария -->
+                            <hr>
+                            {{ comment.message }}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <span>No comment!</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

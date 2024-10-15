@@ -1,0 +1,22 @@
+{% extends 'users/base.html' %}
+
+{% block title %}News - CyberHub 360{% endblock %}
+
+{% block content %}
+
+<div class="news-container">
+    {% for news in page_obj %}
+    <article class="news-item">
+        <h2 class="news-title">{{ news.title }}</h2>
+        <figure>
+            <img src="{{ news.image.url }}" alt="Image" class="news-img">
+        </figure>
+
+        <div class="read-more-container">
+<!--            <a href="{% url 'news:news_detail' pk=news.pk %}" class="read-more">Read more</a>-->
+            <a href="{% url 'news:news_detail' news.id %}" class="read-more">Read more</a>
+        </div>
+    </article>
+    {% endfor %}
+</div>
+{% endblock %}

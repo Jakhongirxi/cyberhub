@@ -1,0 +1,500 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #1a1a1a;
+    color: #f2f2f2;
+}
+body.index {
+    background-color: #333;
+}
+
+body.news {
+    background-color: #f2f2f2;
+}
+
+
+/* Стили для навбара */
+nav {
+    height: 60px; /* Увеличиваем высоту навбара */
+    background-color: #F8F9FA;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для кнопок */
+button {
+    background-color: #F8F9FA;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #ddd;
+}
+
+/* Стили для иконки меню */
+.menu-button {
+    height: 50px;
+    font-size: 25px;
+    background: #F8F9FA;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    transition: 0.3s;
+    vertical-align: middle;
+}
+
+.menu-button:hover {
+    background-color: #F8F9FA; /* Изменение цвета анимации кнопки гамбургера */
+    color: #f1f1f1;
+}
+
+/* Стили для кнопки входа */
+button.login-button {
+    height: 50px;
+    background-color: #F8F9FA;
+    color: #333;
+    transition: 0.3s;
+    vertical-align: middle;
+}
+
+button.login-button:hover {
+    background-color: #F8F9FA;
+    color: #f1f1f1;
+}
+
+nav h1 {
+    flex: 0 0 200px; /* Замените 200px на желаемую ширину */
+    text-align: center;
+    font-family: 'NewBaskervilleCTT'; /* Замените на желаемый шрифт */
+    font-size: 22px; /* Замените на желаемый размер шрифта */
+    color: black; /* Замените на желаемый цвет шрифта */
+}
+
+/* Стили для аватара пользователя */
+.user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #F8F9FA;
+    color: #333;
+    transition: 0.3s;
+    vertical-align: middle;
+}
+
+.user-info img:hover {
+    background-color: #F8F9FA;
+    color: #f1f1f1;
+}
+
+/* Стили для основного содержимого */
+main {
+    padding: 20px;
+    background-color: #F8F9FA;
+    padding-bottom: 80px; /* Добавлен нижний отступ, равный высоте футера */
+    background-color: #2c2c2c;
+    min-height: calc(100vh - 60px);
+    animation: fadeIn 2s;
+}
+
+
+/* Стили для подвала */
+footer {
+    height: 60px;
+    background-color: #F8F9FA;
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Стили для логотипа в подвале */
+footer img {
+    height: 50px;
+    width: auto;
+}
+
+     /* Стили для панели меню */
+.sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #F8F9FA;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 22px;
+            color: #333;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidebar .close-btn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+            transition: 0.3s;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidebar {padding-top: 15px;}
+            .sidebar a {font-size: 18px;}
+}
+/* Стили для формы авторизации */
+.login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: #2c2c2c; /* изменено на цвет основного содержимого */
+    border-radius: 8px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #f2f2f2; /* изменено на цвет текста */
+}
+
+.login-container h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #f2f2f2; /* изменено на цвет текста */
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #f2f2f2; /* изменено на цвет текста */
+}
+
+.form-group input {
+    width: calc(100% - 0px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f2f2f2; /* изменено на цвет фона инпутов */
+    color: #333; /* изменено на цвет текста */
+}
+
+.form-group input::placeholder {
+    color: #888; /* изменено на цвет плейсхолдера */
+}
+
+.form-group i {
+    margin-right: 10px;
+    font-size: 20px;
+    color: #555;
+}
+
+.login-submit {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #f2f2f2; /* изменено на цвет текста */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.login-submit:hover {
+    background-color: #555;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: calc(100vh - 60px);
+    margin-top: 0px;
+    margin-bottom: 20px; /* Добавлен нижний отступ */
+}
+
+
+
+.card {
+    width: 300px;
+    min-height: 400px;  /* Ограничьте высоту карточки */
+    overflow: auto;  /* Добавьте прокрутку, если контент превышает максимальную высоту */
+    box-shadow: 22px 22px 6px 0px  rgba(0,0,0,0.3);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    background: #F8F9FA;
+    transition: transform .5s;
+    margin: 20px;
+    justify-content: space-between;
+}
+
+.card.animated:hover {
+    transform: scale(1.05);
+}
+
+
+.card-image-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card img {
+    width: 100%; /* Задает ширину изображения равной ширине карточки */
+    height: 200px; /* Задает фиксированную высоту для изображения */
+    object-fit: cover; /* Масштабирует изображение, чтобы оно полностью покрывало элемент, сохраняя при этом свои пропорции */
+}
+
+
+.card-content {
+    padding: 15px;
+
+}
+
+.card-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    padding-bottom: 20px;
+}
+
+.card-text {
+    font-size: 16px;
+    color: #333;
+    overflow: hidden; /* Обрезает текст, который выходит за границы элемента */
+    text-overflow: ellipsis; /* Добавляет многоточие (...) в конце обрезанного текста */
+    display: -webkit-box; /* Необходимо для работы свойства line-clamp */
+    -webkit-line-clamp: 3; /* Ограничивает количество строк текста до 3 */
+    -webkit-box-orient: vertical; /* Необходимо для работы свойства line-clamp */
+}
+
+
+
+.read-more-container {
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+}
+
+.read-more {
+    padding: 10px 15px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color .3s;
+}
+
+.read-more:hover {
+    background-color: #000;
+
+}
+
+.read-more-container a {
+    color: #fff;
+    text-decoration: none;
+    background-color: #333;
+    padding: 10px 15px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.read-more-container a:hover {
+    background-color: #000;
+}
+.pagination {
+    display: flex;
+    justify-content: center; /* Выравнивание кнопок пагинации по правому краю */
+    margin-top: -100px; /* Отрицательный верхний отступ поднимает кнопки пагинации выше */
+    margin-bottom: 40px; /* Добавлен нижний отступ, чтобы создать пространство под кнопками пагинации */
+}
+
+.pagination a {
+    color: #333; /* Цвет текста кнопок */
+    background-color: white; /* Цвет фона кнопок */
+    padding: 12px 20px;
+    margin: 20px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border-radius: 20px;
+    box-shadow: 10px 10px 6px 0px  rgba(0,0,0,0.3);
+}
+
+.pagination a:hover {
+    background-color: #ddd;
+}
+
+/* news.html */
+.news-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 30px;
+    background-color: #f2f2f2;
+    border-radius: 20px;
+}
+
+.news-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.news-item h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: black;
+    padding-bottom: 20px;
+    width: 100%;
+    height: 100px;
+}
+
+.news-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.news-content {
+    margin-bottom: 20px;
+    color: black;
+}
+
+
+
+/* Стили для формы авторизации */
+.login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px 20px;
+    background-color: #F8F9FA;
+    border-radius: 15px;
+    box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.3);
+    text-align: center;
+    color: #333;
+    display: flex; /* Добавляем flexbox */
+    flex-direction: column; /* Ориентируем элементы по вертикали */
+    justify-content: center; /* Выравниваем элементы по центру */
+}
+
+
+h2::after, .additional-links::before {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: #ccc;
+    margin: 20px 0;
+}
+
+.login-container h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #333; /* изменен на цвет текста */
+}
+
+
+.form-group label {
+    color: #333; /* изменен на цвет текста */
+}
+
+.form-group input::placeholder {
+    color: #888; /* изменен на цвет плейсхолдера */
+}
+.forgot-password {
+    color: #333;
+    align-items: flex-end; /* Выравнивает элемент по нижнему краю */
+}
+
+.social-login {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Выравнивает элементы по вертикали */
+    gap: 20px; /* Расстояние между иконками */
+    margin: 30px;
+}
+
+.social-login img {
+    width: 40px; /* Увеличиваем размер иконок */
+    height: 70px;
+    transition: transform 0.9s ease; /* Добавляем плавный эффект при наведении */
+}
+
+.social-login img:hover {
+    transform: scale(1.1); /* Увеличиваем иконки при наведении */
+}
+
+.additional-links {
+    margin-top: 1em;
+    text-align: center;
+}
+
+.additional-links a {
+    color: #333;
+    text-decoration: none;
+}
+
+.additional-links a:hover {
+    text-decoration: underline;
+}
+
+/* Стили для сообщений об ошибках */
+.error {
+    color: red;
+    margin-top: 1em;
+}
+
+.success {
+    color: green;
+    margin-top: 0.5em;
+}
+

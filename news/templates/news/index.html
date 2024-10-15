@@ -1,0 +1,37 @@
+{% extends 'news/base.html' %}
+
+{% block title %}CyberHub 360{% endblock %}
+
+{% block content %}
+<main class="card-container">
+    {% for news in page_obj %}
+    <!-- Здесь будет основное содержимое вашего сайта -->
+    <div class="card animated">
+        <div class="card-image-container">
+            <img src="{{ news.image.url }}" alt="Image" class="card-img">
+        </div>
+        <div class="card-content">
+            <h2 class="card-title">{{ news.title }}</h2>
+            <p class="card-text">{{ news.content }}</p>
+        </div>
+        <div class="read-more-container">
+            <a href="{% url 'news:news_detail' news.id %}" class="read-more">Read more</a>
+        </div>
+    </div>
+    {% endfor %}
+</main>
+{% endblock %}
+
+{% block pagination %}
+<div class="pagination">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">Pervious</a>
+        {% endif %}
+
+
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">Next</a>
+        {% endif %}
+    </div>
+{% endblock %}
